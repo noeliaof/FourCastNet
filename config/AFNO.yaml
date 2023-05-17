@@ -73,10 +73,10 @@ afno_backbone: &backbone
   exp_dir: '/pscratch/sd/s/shas1693/results/era5_wind'
   train_data_path: '/pscratch/sd/s/shas1693/data/era5/train'
   valid_data_path: '/pscratch/sd/s/shas1693/data/era5/test'
-  inf_data_path:   '/pscratch/sd/s/shas1693/data/era5/out_of_sample'
-  time_means_path:   '/pscratch/sd/s/shas1693/data/era5/time_means.npy'
-  global_means_path: '/pscratch/sd/s/shas1693/data/era5/global_means.npy'
-  global_stds_path:  '/pscratch/sd/s/shas1693/data/era5/global_stds.npy'
+  inf_data_path: '/storage/workspaces/giub_hydro/hydro/data/Global_hourly/out_of_sample' #'/storage/workspaces/giub_hydro/hydro/data/Global_hourly/out_of_sample'  #'/pscratch/sd/s/shas1693/data/era5/out_of_sample'
+  time_means_path:   '/storage/workspaces/giub_hydro/hydro/data/Global_hourly/time_means.npy' #'/pscratch/sd/s/shas1693/data/era5/time_means.npy'
+  global_means_path:  '/storage/workspaces/giub_hydro/hydro/data/Global_hourly/global_means.npy' #'/pscratch/sd/s/shas1693/data/era5/global_means.npy'
+  global_stds_path:  '/storage/workspaces/giub_hydro/hydro/data/Global_hourly/global_stds.npy' #'/pscratch/sd/s/shas1693/data/era5/global_stds.npy'
 
 afno_backbone_orography: &backbone_orography 
   <<: *backbone
@@ -87,7 +87,7 @@ afno_backbone_finetune:
   <<: *backbone
   lr: 1E-4
   batch_size: 64
-  log_to_wandb: !!bool True
+  log_to_wandb: !!bool False #True
   max_epochs: 50
   pretrained: !!bool True
   two_step_training: !!bool True
@@ -101,13 +101,13 @@ perturbations:
   pretrained: !!bool True
   two_step_training: !!bool True
   pretrained_ckpt_path: '/pscratch/sd/j/jpathak/ERA5_expts_gtc/wind/afno_20ch_bs_64_lr5em4_blk_8_patch_8_cosine_sched/1/training_checkpoints/best_ckpt.tar'
-  prediction_length: 24
+  pediction_length: 24
   ics_type: "datetime"
   n_perturbations: 100 
   save_channel: !bool True
   save_idx: 4
   save_raw_forecasts: !!bool False
-  date_strings: ["2018-01-01 00:00:00"] 
+  date_strings: ["2021-01-01 00:00:00"] 
   inference_file_tag: " "
   valid_data_path: "/pscratch/sd/j/jpathak/ "
   perturb: !!bool True

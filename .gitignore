@@ -1,6 +1,5 @@
 *.h5
 *.out
-*.ipynb
 expts/
 wandb/
 data_process/.ipynb_checkpoints/*
@@ -15,3 +14,5 @@ utils/.ipynb_checkpoints/*
 ray_results
 *.pdf
 *.svg
+*.ckpt
+*.npy
